@@ -1,0 +1,74 @@
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void harvestTheField()
+{
+    moveHarvest();
+    moveCornerLeft();
+    moveHarvest();
+    
+}
+
+void moveHarvest()
+{
+    pickBeeper();
+    repeat(3)
+    {
+        reapTheHarvestRight();
+        moveThroughFieldRight();
+    }
+    reapTheHarvestRight();
+    moveForward();
+    moveCornerRight();
+    repeat(3)
+    {
+        reapHarvestLeft();
+    }
+}    
+void reapTheHarvestRight()
+{
+    if (beeperAhead())
+    {
+        moveForward();
+        pickBeeper();
+    }
+}
+
+
+void moveThroughFieldRight()
+{
+    turnRight();
+    moveForward();
+    turnLeft();
+}
+
+void moveCornerRight()
+{
+    turnLeft();
+    moveForward();
+    pickBeeper();
+    turnLeft();
+}
+
+void reapHarvestLeft()
+{
+    turnRight();
+    moveForward();
+    turnLeft();
+    moveForward();
+    pickBeeper();
+}
+
+void moveCornerLeft()
+{
+    turnRight();
+    moveForward();
+    turnRight();
+    moveForward();
+}

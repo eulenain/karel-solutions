@@ -1,0 +1,30 @@
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void practiceHomeRun()
+{
+    repeat(4)
+    {
+        moveUntilDone();
+    }
+    
+}
+
+void moveUntilDone()
+{
+    while (frontIsClear())
+    {
+        moveForward();
+    }
+    if (onBeeper())
+    {
+        pickBeeper();   
+    }
+    turnLeft();
+}
