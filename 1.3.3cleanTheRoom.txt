@@ -1,0 +1,70 @@
+/*This was quite a challenge because 
+I didn't know I could insert an If function
+into the While function. I had to peek at someone
+else's results, but from there on it was easier.*/
+
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void cleanTheRoom()
+
+{
+    repeat(5)
+    {
+        moveThroughRoom();
+        checkForLastBeeper();
+        turnRightCorner();
+        moveThroughRoom();
+        checkForLastBeeper();
+        turnLeftCorner();
+    }
+    
+}
+
+void checkForLastBeeper()
+{
+    if(onBeeper())
+    {
+        pickBeeper();
+    }
+}
+
+void turnRightCorner()
+{
+    turnLeft();
+    moveForward();
+    turnLeft();
+}
+
+void turnLeftCorner()
+{
+    turnRight();
+    moveForward();
+    turnRight();
+}
+
+void moveThroughRoom()
+{
+    while (frontIsClear())
+    {
+        if (onBeeper())
+        {
+            pickBeeper();
+        }
+        moveForward();  
+    }
+}
+
+/*I actually had to write down this time what
+Karel was supposed to do. This made it easier
+to structure my code:
+While nothing is hindering you, move forward
+If something is on the floor pick it up and check
+if there's another beeper at the end of the row
+Then go into the next row and repeat*/

@@ -1,0 +1,39 @@
+/*
+I realize it's not the best solution, as it bumps into the wall at the end, but I don't really know at this point in time how else to fix this
+*/
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void repairTheStreet()
+{
+    repeat(9)
+    {
+        moveAlong();
+    }
+    
+}
+
+void moveAlong()
+{
+    if (rightIsClear())
+    {
+        turnRight();
+        moveForward();
+        dropBeeper();
+        turnAround();
+        moveForward();
+        turnRight();
+        moveForward();
+    }
+    
+    while (!rightIsClear() && frontIsClear())
+    {
+        moveForward(); 
+    }
+}
