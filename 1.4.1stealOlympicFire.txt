@@ -1,0 +1,50 @@
+/*
+
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+F7 = onBeeper();
+F8 = beeperAhead();
+F9 = leftIsClear();
+F10 = frontIsClear();
+F11 = rightIsClear();
+*/
+
+void stealOlympicFire()
+{
+    moveForward();
+    climbStairs();
+    turnRight();
+    runAway();
+    turnLeft();
+    moveForward();
+}
+
+void climbStairs()
+{
+    
+    while (!rightIsClear())
+    {
+        turnLeft();
+        moveForward();
+        turnRight();
+        moveForward();
+        if (onBeeper())
+        {
+            pickBeeper();
+            moveForward();
+        }
+    }
+}
+
+void runAway()
+{
+    while (frontIsClear())
+    {
+        moveForward();
+    }
+}
