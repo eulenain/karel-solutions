@@ -1,0 +1,58 @@
+/*
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+F7 = onBeeper();
+F8 = beeperAhead();
+F9 = leftIsClear();
+F10 = frontIsClear();
+F11 = rightIsClear();
+*/
+
+void addSlow(){
+    while (frontIsClear()){
+        loop();
+    }
+}
+
+void loop(){
+    decrement();
+    turnAround();
+    while (frontIsClear()){
+        moveForward();
+    }
+    turnRight();
+    moveForward();
+    turnRight();
+    increment();
+    turnAround();
+    while (frontIsClear()){
+        moveForward();
+    }
+    turnLeft();
+    moveForward();
+    turnLeft();
+}
+
+void decrement(){
+    while (!onBeeper()){
+        dropBeeper();
+        moveForward();
+    }
+    if (onBeeper()){
+        pickBeeper();
+        
+    }
+}
+
+void increment(){
+    while (onBeeper()){
+        pickBeeper();
+        moveForward();
+    }
+    dropBeeper();
+}

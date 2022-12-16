@@ -1,0 +1,24 @@
+/*
+My initial thinking was way too complicated and I just couldn't figure it out. 
+The answer is just too easy...
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+F7 = onBeeper();
+F8 = beeperAhead();
+F9 = leftIsClear();
+F10 = frontIsClear();
+F11 = rightIsClear();
+*/
+
+void increment (){
+    while (onBeeper()){
+        pickBeeper();
+        moveForward();
+    }
+    dropBeeper();
+}
